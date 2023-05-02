@@ -78,7 +78,14 @@ function TodoList() {
         })
     }
 
-    const topStackItem = todoIdStack.length > 0 ? todoItemGraph[todoIdStack[todoIdStack.length - 1]] : null;
+    let topStackItem;
+    if (todoIdStack.length > 0) {
+        const topId = todoIdStack[todoIdStack.length - 1];
+        topStackItem = todoItemGraph[topId];
+
+    } else {
+        topStackItem = null;
+    }
 
     let relevantTodoItems: TodoItem[];
     if (topStackItem === null) {
